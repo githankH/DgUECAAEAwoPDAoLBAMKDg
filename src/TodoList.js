@@ -16,6 +16,9 @@ const badgestyle = {
 };
 
 const TodoList = ({ todos, listyle, completeHandler }) => {
+  /*
+     only render lists when list exists
+   */
   return (
     <ul style={ulstyle}>
       {todos &&

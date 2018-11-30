@@ -28,10 +28,10 @@ const TabView = ({ items, itemsOnDay, todoItemHandler, completeHandler }) => {
       {
         items.map((item,index)=>(
           <TodoList key={index}
-          todos={item}
-          completeHandler={null}
-          listyle={clearListstyle}
-        />    
+               todos={item}
+               completeHandler={null}
+               listyle={clearListstyle}
+          />    
         ))
       }
       </TabPane>

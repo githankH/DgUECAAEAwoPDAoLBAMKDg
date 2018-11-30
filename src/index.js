@@ -28,7 +28,15 @@ class App extends React.Component {
     };
   }
 
+/* if there is previous data, then load it 
+   todos: are 2d-array,
+   [[],[],...]
+   1st-dim: all days lists,
+   2nd-dim: each days lists
+   each array-element: type:(done or not-done), content:(description text)
+*/
   componentDidMount() {
+    
     let flag = localStorage.getItem("flag");
     let saves = JSON.parse(localStorage.getItem("todos"));
     let mock = new Array(32);
@@ -61,6 +69,13 @@ class App extends React.Component {
     this.setState({ chosen: day.date() });
   };
 
+  /*
+     input sends text, then
+     1st: find current day lists
+     2nd: add new text item into idx=0 position
+     3rd: geneate new all todos
+     4th: setState to render
+  */
   newTodoItemHandler = text => {
     let newlistOnday = this.state.todos[this.state.chosen]
       ? [...this.state.todos[this.state.chosen]]
@@ -71,7 +86,11 @@ class App extends React.Component {
     newtodos.splice(this.state.chosen, 1, newlistOnday);
     this.setState({ todos: newtodos });
   };
-
+ 
+  /*
+     as the same as newTodoItemHandler,
+     the different is to control status(or type) here
+   */
   completeHandler = (oneTodo, index) => {
     const newTodo = {
       type: oneTodo.type === "warning" ? "success" : "warning",
