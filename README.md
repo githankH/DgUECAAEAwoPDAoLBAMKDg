@@ -31,6 +31,7 @@ e.g.:
 1) the suitable data structure to store information
 2) the connection and presentation of components
 3) etc.
+
 I am not sure if it is fine or not, therefore, I also mention this situation.
 
 Many thanks for such opportunity 
