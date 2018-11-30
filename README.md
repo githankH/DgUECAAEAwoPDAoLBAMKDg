@@ -22,8 +22,11 @@ Not Done:
 
 
 Acturally, I spent two night to do this project.
+
 The progress time descripted above is 'writing code' time.
+
 However, I spent more time to try the idea of my thinking.
+
 e.g.: 
 1) the suitable data structure to store information
 2) the connection and presentation of components
