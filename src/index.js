@@ -28,6 +28,11 @@ class App extends React.Component {
     };
   }
 
+  onReloadhandler = (e) => {
+      localStorage.setItem("flag", "yes");
+      localStorage.setItem("todos", JSON.stringify(this.state.todos));
+  }
+
 /* if there is previous data, then load it 
    todos: are 2d-array,
    [[],[],...]
@@ -58,11 +63,14 @@ class App extends React.Component {
     ]);
 
     this.setState({ todos: flag === "yes" ? saves : mock });
+    window.addEventListener('beforeunload',this.onReloadhandler);
   }
 
   componentWillUnmount() {
-    localStorage.setItem("flag", "yes");
-    localStorage.setItem("todos", JSON.stringify(this.state.todos));
+    this.onReloadhandler();
+    window.removeEventListener('beforeunload',this.onReloadhandler);
+    //localStorage.setItem("flag", "yes");
+    //localStorage.setItem("todos", JSON.stringify(this.state.todos));
   }
 
   onSelecthandler = day => {
